@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZenBudget.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7b8ea86009c0438b40d0ca09363f4d2d9640f91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+066ca03d4102d0014090bc7d4c32b93a657b55b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZenBudget.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZenBudget.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
