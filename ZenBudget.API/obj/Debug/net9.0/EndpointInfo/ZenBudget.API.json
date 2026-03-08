@@ -256,6 +256,15 @@
         "tags": [
           "Category"
         ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/TransactionType"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"

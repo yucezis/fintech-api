@@ -14,10 +14,22 @@ public class CategoryRepository : ICategoryRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Category>> GetByUserIdAsync(Guid userId)
+    public async Task<IEnumerable<Category>> GetByUserIdAsync(Guid userId, TransactionType? type = null)
     {
-        return await _context.Categories
-            .Where(c => c.UserId == userId || c.UserId == Guid.Empty)
+        var all = await _context.Categories.ToListAsync();
+        Console.WriteLine($"DEBUG - Toplam kategori: {all.Count}");
+        Console.WriteLine($"DEBUG - UserId null olanlar: {all.Count(c => !c.UserId.HasValue)}");
+        Console.WriteLine($"DEBUG - Bu kullanıcıya ait: {all.Count(c => c.UserId == userId)}");
+
+        var query = _context.Categories
+            .Where(c => c.UserId == userId || !c.UserId.HasValue);
+
+        if (type.HasValue)
+            query = query.Where(c => c.Type == type.Value);
+
+        return await query
+            .OrderBy(c => c.IsSystem ? 0 : 1)
+            .ThenBy(c => c.Name)
             .ToListAsync();
     }
 
@@ -38,6 +50,7 @@ public class CategoryRepository : ICategoryRepository
             await _context.SaveChangesAsync();
         }
     }
+
 
     public async Task<bool> AnyAsync(Guid id) => await _context.Categories.AnyAsync(c => c.Id == id);
 }

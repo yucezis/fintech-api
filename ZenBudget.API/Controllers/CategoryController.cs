@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ZenBudget.Application.DTOs;
 using ZenBudget.Domain.Entities;
 using ZenBudget.Domain.Interfaces;
@@ -22,9 +23,9 @@ public class CategoryController : ControllerBase
     private Guid GetUserId() => Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
     [HttpGet]
-    public async Task<IActionResult> GetCategories()
+    public async Task<IActionResult> GetCategories([FromQuery] TransactionType? type = null)
     {
-        var categories = await _repository.GetByUserIdAsync(GetUserId());
+        var categories = await _repository.GetByUserIdAsync(GetUserId(), type);
         return Ok(categories);
     }
 

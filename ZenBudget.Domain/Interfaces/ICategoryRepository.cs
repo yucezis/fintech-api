@@ -4,7 +4,7 @@ namespace ZenBudget.Domain.Interfaces;
 
 public interface ICategoryRepository
 {
-    Task<IEnumerable<Category>> GetByUserIdAsync(Guid userId);
+    Task<IEnumerable<Category>> GetByUserIdAsync(Guid userId, TransactionType? type = null);
     Task AddAsync(Category category);
     Task DeleteAsync(Guid id, Guid userId);
     Task<bool> AnyAsync(Guid id);
