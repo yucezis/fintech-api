@@ -21,6 +21,9 @@
 > RESTful API layer of the personal budget management application, built on **ASP.NET Core 8.0** following Clean Architecture principles.
 
 ---
+> 💡 **Note:** This repository contains the backend API for the **ZenBudget** application. If you are looking for the cross-platform Flutter mobile client source code, please visit the [ZenBudget Mobile App Repository](https://github.com/yucezis/fintech-flutter-app).
+
+---
 
 ## Table of Contents
 
@@ -302,3 +305,4 @@ This project is licensed under the [MIT License](LICENSE).
 <p align="center">
   ZenBudget Backend — The API layer of financial peace 💙
 </p>
+
